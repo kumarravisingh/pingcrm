@@ -7,6 +7,7 @@ use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\OrganizationsController;
 use App\Http\Controllers\ReportsController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\LinkedinController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 // Auth
 
-Route::get('login', [AuthenticatedSessionController::class, 'create'])
+Route::get('admin-login', [AuthenticatedSessionController::class, 'create'])
     ->name('login')
     ->middleware('guest');
 
@@ -140,3 +141,12 @@ Route::get('reports', [ReportsController::class, 'index'])
 Route::get('/img/{path}', [ImagesController::class, 'show'])
     ->where('path', '.*')
     ->name('image');
+
+Route::get('login', [LinkedinController::class, 'create'])
+    ->name('linkedinLoginView')
+    ->middleware('guest');
+
+Route::get('/auth/redirect',[LinkedinController::class, 'linkedinRedirect'])
+    ->name('linkedinLoginRedirect');
+
+Route::get('/auth/linkedin/callback',[LinkedinController::class, 'linkedinAuthCallback']);

@@ -14,8 +14,10 @@
         "inertiajs/inertia-laravel": "^0.6.4",
         "laravel/framework": "^8.65",
         "laravel/sanctum": "^2.11",
+        "laravel/socialite": "^5.11",
         "laravel/tinker": "^2.5",
-        "league/glide-laravel": "^1.0"
+        "league/glide-laravel": "^1.0",
+        "socialiteproviders/providers": "dev-master as 2.4.5"
     },
     "require-dev": {
         "roave/security-advisories": "dev-latest",
@@ -25,6 +27,13 @@
         "nunomaduro/collision": "^5.10",
         "phpunit/phpunit": "^9.5.10"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "https://github.com/akhterarif/Providers.git",
+            "no-api": true
+        }
+    ],
     "autoload": {
         "psr-4": {
             "App\\": "app/",
